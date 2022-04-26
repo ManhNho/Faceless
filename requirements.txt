@@ -1,0 +1,10 @@
+numpy
+tensorflow
+keras>=2.2.0
+keras_applications >= 1.0.7
+opencv-python>=4.1.0
+mtcnn
+efficientnet
+split_folders
+imutils
+matplotlib
