@@ -83,7 +83,7 @@ There are two ways to using Faceless:
 
 ## References
 
-* Model training is handled by [this one](https://github.com/manhnho/Faceless/Trainings/)
+* Model training is handled by [this one](https://github.com/manhnho/Faceless/Training/)
 
 ## Authors
 
