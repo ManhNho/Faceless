@@ -1,0 +1,716 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Faceless: Deepfake Detection</title>
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet" />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/owl.carousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/venobox/venobox.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/uppload@2.3.0/dist/uppload.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/uppload@2.3.0/dist/themes/light.css"
+      crossorigin="anonymous"
+    />
+    <style>
+      .need-help-link {
+        display: none;
+      }
+      .uppload-modal section {
+        padding: 0;
+      }
+    </style>
+  </head>
+
+  <body
+    data-aos-easing="ease-in-out"
+    data-aos-duration="800"
+    data-aos-delay="0"
+  >
+    <button type="button" class="mobile-nav-toggle d-lg-none">
+      <i class="icofont-navigation-menu"></i>
+    </button>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex">
+        <div class="logo mr-auto">
+          <h1 class="text-light"><a href="/">DFDetect</a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate"
+            data-aos="fade-up"
+          >
+            <div>
+              <h1>Faceless: DeepFake Detection</h1>
+              <h2>Upload an image to test for possible deepfakes</h2>
+              <a class="btn btn-light btn-lg uppload-button"> Get Started</a>
+            </div>
+          </div>
+          <div
+            class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate"
+            data-aos="fade-up"
+            style="padding-left: 20px"
+          >
+            <img
+              src="assets/img/DeepfakeDetection_Facebook.gif"
+              class="img-fluid"
+              alt=""
+              id="image-output"
+              style="width: fit-content; margin: auto"
+            />
+            <p
+              id="image-credits"
+              style="font-size: 10px; text-align: end; margin-top: 5px"
+            >
+              Image credits:
+              <a
+                href="https://ai.facebook.com/blog/deepfake-detection-challenge-results-an-open-initiative-to-advance-ai/"
+                >Facebook AI</a
+              >
+            </p>
+            <div id="result-div" style="display: none; margin-top: 20px">
+              <label>Prediction Result:</label>
+              <textarea class="form-control" rows="2" id="output"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">
+      <!-- ======= Results Section ======= -->
+      <section id="results" class="gallery">
+        <div class="container">
+          <div class="section-title">
+            <h2>Prediction Results</h2>
+            <p>
+              Sample prediction results produced by our deepfake detection model
+            </p>
+          </div>
+
+          <div
+            class="owl-carousel gallery-carousel owl-loaded owl-drag aos-init"
+            data-aos="fade-up"
+          >
+            <div class="owl-stage-outer">
+              <div
+                class="owl-stage"
+                style="
+                  transition: all 0.25s ease 0s;
+                  width: 5720px;
+                  transform: translate3d(-2144px, 0px, 0px);
+                "
+              >
+                <div
+                  class="owl-item cloned"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-7.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-7.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item cloned"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-8.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-8.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item cloned"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-9.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-9.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item cloned"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-10.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-10.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item cloned"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-11.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-11.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item cloned"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-12.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-12.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-1.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-1.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-2.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-2.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-3.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-3.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item active"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-4.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-4.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item active center"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-5.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-5.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item active"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-6.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-6.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-7.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-7.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-8.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-8.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-9.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-9.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-10.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-10.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-11.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-11.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-12.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-12.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item cloned"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-1.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-1.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item cloned"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-2.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-2.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item cloned"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-3.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-3.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item cloned"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-4.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-4.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item cloned"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-5.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-5.png" alt=""
+                  /></a>
+                </div>
+                <div
+                  class="owl-item cloned"
+                  style="width: 213.333px; margin-right: 25px"
+                >
+                  <a
+                    href="assets/img/gallery/gallery-6.png"
+                    class="venobox vbox-item"
+                    data-gall="gallery-carousel"
+                    ><img src="assets/img/gallery/gallery-6.png" alt=""
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="owl-nav disabled">
+              <button type="button" role="presentation" class="owl-prev">
+                <span aria-label="Previous">‹</span></button
+              ><button type="button" role="presentation" class="owl-next">
+                <span aria-label="Next">›</span>
+              </button>
+            </div>
+            <div class="owl-dots">
+              <button role="button" class="owl-dot"><span></span></button
+              ><button role="button" class="owl-dot"><span></span></button
+              ><button role="button" class="owl-dot"><span></span></button
+              ><button role="button" class="owl-dot"><span></span></button
+              ><button role="button" class="owl-dot active">
+                <span></span></button
+              ><button role="button" class="owl-dot"><span></span></button
+              ><button role="button" class="owl-dot"><span></span></button
+              ><button role="button" class="owl-dot"><span></span></button
+              ><button role="button" class="owl-dot"><span></span></button
+              ><button role="button" class="owl-dot"><span></span></button
+              ><button role="button" class="owl-dot"><span></span></button
+              ><button role="button" class="owl-dot"><span></span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Results Section -->
+
+      <!-- ======= Details Section ======= -->
+      <section id="details" class="details">
+        <div class="container">
+          <div class="row content">
+            <div
+              class="col-md-12 pt-5 order-2 order-md-1 aos-init"
+              data-aos="fade-up"
+            >
+              <h3>Experimental Results</h3>
+              <p>
+                We have performed extensive training and hyperparameter tuning,
+                such as comparing different pre-train models, number of
+                convolution layers, weights, data augmentations, dropout rates,
+                and regularizers. In the end, the following settings give us the
+                best results:
+              </p>
+              <ul>
+                <li><i class="icofont-check"></i> Input Size: 128 x 128</li>
+                <li><i class="icofont-check"></i> Batch Size: 32</li>
+                <li><i class="icofont-check"></i> Optimizer: Adam</li>
+                <li><i class="icofont-check"></i> Learning Rate: 0.0001</li>
+                <li><i class="icofont-check"></i> Dropout Rate: 0.5</li>
+                <li>
+                  <i class="icofont-check"></i> Regularization: L2 with 0.001
+                  rate
+                </li>
+              </ul>
+              <p>
+                <img src="assets/img/results.png" style="max-width: 100%" />
+              </p>
+              <ul>
+                <li><i class="icofont-check"></i> Accuracy: 96.36%</li>
+                <li><i class="icofont-check"></i> Precision: 94.95%</li>
+                <li><i class="icofont-check"></i> Recall: 97.94%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Details Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container py-4">
+        <div class="copyright">
+          <strong
+            ><a href="https://github.com/manhnho/faceless"
+              >GitHub</a
+            >
+          </strong>
+        </div>
+        <strong>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-app-landing-page-template/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </strong>
+      </div>
+      <strong> </strong>
+    </footer>
+    <!-- End Footer --><strong>
+      <a href="#" class="back-to-top" style="display: none"
+        ><i class="icofont-simple-up"></i
+      ></a>
+
+      <!-- Vendor JS Files -->
+      <script src="assets/vendor/jquery/jquery.min.js"></script>
+      <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+      <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+      <script src="assets/vendor/venobox/venobox.min.js"></script>
+      <script src="assets/vendor/aos/aos.js"></script>
+
+      <!-- Template Main JS File -->
+      <script src="assets/js/main.js"></script>
+      <script
+        src="https://unpkg.com/uppload@2.3.0/dist/browser.js"
+        crossorigin="anonymous"
+      ></script>
+      <script>
+        var uploader = new window.uppload_Uppload({
+          lang: window.uppload_en,
+          call: ".uppload-button",
+          compressor: (file) => {
+            return new Promise((resolve, reject) => {
+              resolve(file);
+            }
+          )},
+          uploader: window.uppload_xhrUploader({
+            endpoint: "http://localhost:5000",
+            responseFunction: (responseText) => {
+            var json = {
+                original_img_url:
+                  `http://localhost:5000/uploads/${responseText}.jpg`,
+                img_url:
+                `http://localhost:5000/uploads/${responseText}.jpg`,
+                num_faces: 1,
+                pred: [0.3],
+                face_list: [
+                  `http://localhost:5000/uploads/${responseText}.jpg`,
+                ],
+              };
+              $("#output").val(json.pred);
+              document.getElementById("image-credits").style.display = "none";
+              document.getElementById("image-output").src = json.img_url;
+
+              var html =
+                '<span class="label label-info" style="margin-left: 10px; font-weight: bolder;">Prediction Results</span>';
+              for (var i = 0; i < json.num_faces; i++) {
+                html += '<div class="row">';
+                html += '<div class="col-lg-3">';
+                html +=
+                  '<img src="' +
+                  json.face_list[i] +
+                  '" style="width: 80px; margin: 10px;"/>';
+                html += "</div>";
+                html += '<div class="col-lg-9" style="margin: auto;">';
+                html += "</div>";
+                html += "</div>";
+              }
+              var result_div = document.getElementById("result-div");
+              result_div.innerHTML = html;
+              result_div.style.display = "block";
+              return;
+            },
+          }),
+        });
+
+        uploader.use(
+          new window.uppload_Local({
+            mimeTypes: ["image/png", "image/jpeg", "image/jpg"],
+            maxFileSize: 16000000,
+          })
+        );
+
+        uploader.use(new window.uppload_Preview());
+      </script>
+    </strong>
+    <nav class="mobile-nav d-lg-none">
+      <ul>
+        <li class="active"><a href="#header">Home</a></li>
+        <li><a href="#results">Samples</a></li>
+        <li><a href="#details">Details</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-nav-overly"></div>
+    <div class="uppload-container">
+      <div class="uppload-modal">
+        <aside style="display: none" class="uppload-services--single">
+          <nav class="uppload-services">
+            <div data-uppload-service="local" class="uppload-service-name">
+              <input
+                type="radio"
+                id="uppload-service-radio-local"
+                value="local"
+                name="uppload-radio"
+              />
+              <label
+                for="uppload-service-radio-local"
+                data-uppload-service="local"
+              >
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 256 256"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g fill="#34495e" fill-rule="nonzero">
+                    <path d="M177 56L125 4l-3-2v57h57c0-2-1-3-2-3z"></path>
+                    <path
+                      d="M173 113h8V75h-66c-5 0-8-4-8-8V1H27c-4 0-8 4-8 8v184c0 4 4 8 8 8h65v-8c0-45 36-80 81-80z"
+                    ></path>
+                    <path
+                      d="M173 128c-36 0-65 29-65 64s29 64 65 64c35 0 64-29 64-64s-29-64-64-64zm27 63h-14v33c0 2-2 3-4 3h-20c-2 0-3-1-3-3v-33h-14c-3 0-5-3-3-5l28-30c1-2 3-2 5 0l27 30c2 2 1 5-2 5z"
+                    ></path>
+                  </g>
+                </svg>
+                <span>Choose file</span>
+              </label>
+            </div>
+          </nav>
+        </aside>
+        <section>
+          <div class="uppload-active-container">
+            <div class="uppload-service uppload-service--default">
+              <p>Select an image</p>
+              <div class="uppload-services">
+                <div data-uppload-service="local" class="uppload-service-name">
+                  <button data-uppload-service="local">
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 256 256"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g fill="#34495e" fill-rule="nonzero">
+                        <path d="M177 56L125 4l-3-2v57h57c0-2-1-3-2-3z"></path>
+                        <path
+                          d="M173 113h8V75h-66c-5 0-8-4-8-8V1H27c-4 0-8 4-8 8v184c0 4 4 8 8 8h65v-8c0-45 36-80 81-80z"
+                        ></path>
+                        <path
+                          d="M173 128c-36 0-65 29-65 64s29 64 65 64c35 0 64-29 64-64s-29-64-64-64zm27 63h-14v33c0 2-2 3-4 3h-20c-2 0-3-1-3-3v-33h-14c-3 0-5-3-3-5l28-30c1-2 3-2 5 0l27 30c2 2 1 5-2 5z"
+                        ></path>
+                      </g>
+                    </svg>
+                    <span>Choose file</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer style="display: none" class="effects-nav">
+            <div class="effects-continue">
+              <button class="effects-continue--cancel">Cancel</button>
+            </div>
+            <div class="effects-tabs" style="width: 0px">
+              <div class="effects-tabs-flow">
+                <input
+                  type="radio"
+                  id="uppload-effect-radio-preview"
+                  value="preview"
+                  name="uppload-effect-radio"
+                />
+                <label for="uppload-effect-radio-preview">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 256 256"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      transform="translate(1 18)"
+                      fill="#000"
+                      fill-rule="nonzero"
+                    >
+                      <path
+                        d="M244 40h-29V10c0-6-5-10-10-10H10C4 0 0 4 0 10v160c0 5 4 10 10 10h29v30c0 6 4 10 9 10h195c6 0 10-4 10-10V50c0-5-4-10-9-10zm-10 136l-40-45c-4-5-11-5-15 0l-17 19-38-45c-4-5-13-5-17 0l-49 58V60h176v116zM19 160V20h176v20H49c-6 0-10 5-10 10v110H19z"
+                      ></path>
+                      <ellipse cx="202.5" cy="94" rx="15.5" ry="16"></ellipse>
+                    </g>
+                  </svg>
+                  <span>Preview</span>
+                </label>
+              </div>
+            </div>
+            <div class="effects-continue">
+              <button class="effects-continue--upload">Upload</button>
+            </div>
+          </footer>
+        </section>
+        <div class="uppload-help-loading">
+          <div class="uppload-loader">
+            <div></div>
+            <p class="uppload-loader-text">Loading help...</p>
+          </div>
+        </div>
+        <div class="uppload-help">
+          <div>
+            <button>
+              <span>Close help</span><span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <iframe></iframe>
+        </div>
+      </div>
+      <div class="uppload-modal-bg">
+        <button class="uppload-close" aria-label="Close">×</button>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
