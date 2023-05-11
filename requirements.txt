@@ -4,3 +4,4 @@ keras
 tensorflow
 scikit-learn
 uuid
+opencv-python
